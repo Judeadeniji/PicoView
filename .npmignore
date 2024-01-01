@@ -1,0 +1,5 @@
+# ignore src folder
+src/
+
+# ignore .git folder
+.git/

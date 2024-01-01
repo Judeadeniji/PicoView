@@ -1,0 +1,51 @@
+{
+  "name": "picoview",
+  "version": "0.0.1",
+  "description": "A server-side web applications framework for building scalable user interfaces",
+  "main": "dist/index.js",
+  "type": "module",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "require": "./dist/picoview.cjs.js"
+    }
+  },
+  "types": "./dist/index.d.ts",
+  "module": "./dist/index.js",
+  "browser": "./dist/picoview.umd.js",
+  "unpkg": "./dist/picoview.umd.js",
+  "jsdelivr": "./dist/picoview.umd.js",
+  "files": [
+    "dist/*.js",
+    "dist/*.d.ts",
+    "LICENSE",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "tsc -p . && npm run build:umd && npm run build:esm && npm run build:cjs && npm run uglify",
+    "build:umd": "rollup -c rollup.config.js",
+    "build:esm": "rollup -c rollup.config.esm.js",
+    "build:cjs": "rollup -c rollup.config.cjs.js",
+    "uglify:umd": "uglifyjs -m eval -o dist/picoview.umd.min.js dist/picoview.umd.js",
+    "uglify:esm": "uglifyjs -m eval -o dist/picoview.esm.min.js dist/picoview.esm.js",
+    "uglify:cjs": "uglifyjs -m eval -o dist/picoview.cjs.min.js dist/picoview.cjs.js",
+    "uglify": "npm run uglify:umd && npm run uglify:esm && npm run uglify:cjs"
+  },
+  "keywords": [
+    "web",
+    "framework",
+    "ui",
+    "javascript",
+    "picoview",
+    "server-side",
+    "performance"
+  ],
+  "author": "Adenji Oluwaferanmi",
+  "license": "MIT",
+  "devDependencies": {
+    "rollup": "^4.9.2",
+    "rollup-plugin-node-resolve": "^5.2.0",
+    "typescript": "^5.3.3",
+    "uglify-js": "^3.17.4"
+  }
+}
