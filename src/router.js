@@ -1,7 +1,7 @@
 import { do_children, log } from "./picoview.js";
 
 /**
- * @this {import("./picoview").IApp}
+ * @this {import("./picoview-types.js").IApp}
  * @param {string} to
  */
 export function match_route(to) {
@@ -52,8 +52,8 @@ export function match_route(to) {
 }
 
 /**
- * @this {import("./picoview").IApp}
- * @param {(this: { state: Readonly<import("./picoview.js").State>, routes: ReadonlyArray<any> }, isNavigating: boolean) => void} callback
+ * @this {import("./picoview-types.js").IApp}
+ * @param {(this: { state: Readonly<import("./picoview-types.js").State>, routes: ReadonlyArray<any> }, isNavigating: boolean) => void} callback
  */
 export function onNavigate(callback) {
     this.onNavigate = callback.bind({ state: this.state, routes: this.routes });
@@ -62,8 +62,8 @@ export function onNavigate(callback) {
 
 /**
  * Routes for the IApp
- * @param {import("./picoview.js").Routes} routes
- * @this {import("./picoview").IApp}
+ * @param {import("./picoview-types.js").Routes} routes
+ * @this {import("./picoview-types.js").IApp}
  */
 export function routes(routes) {
     this.routes = routes;
@@ -71,7 +71,7 @@ export function routes(routes) {
 /**
  *
  * @param {string} res
- * @this {import("./picoview").IApp}
+ * @this {import("./picoview-types.js").IApp}
  */
 export function update_view(res) {
     document.querySelectorAll("[window_tag]").forEach((el) => el.remove());
@@ -84,7 +84,7 @@ export function update_view(res) {
     do_children.call(this, this.container);
 }
 /**
- * @this {import("./picoview").IApp}
+ * @this {import("./picoview-types.js").IApp}
  * @param {string} to
  */
 export function navigate(to) {

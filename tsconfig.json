@@ -9,6 +9,7 @@
         "outDir": "dist",
         "strict": false,
         "moduleResolution": "Bundler",
+        "emitDeclarationOnly": true
     },
     "include": ["src"],
     "exclude": ["node_modules", "**/node_modules/*"],

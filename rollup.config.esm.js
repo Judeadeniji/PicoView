@@ -6,7 +6,7 @@ import resolve from 'rollup-plugin-node-resolve';
 export default {
     input: 'src/index.js',
     output: {
-        file: 'dist/picoview.esm.js',
+        file: 'dist/picoview.mjs',
         format: 'esm',
         name: 'picoview',
         sourcemap: true,

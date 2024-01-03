@@ -88,6 +88,7 @@ interface PVAttributes extends HTMLElement {
     "pv-defer:src"?: string;
     "pv-defer:swap"?: "inner" | "outer" | "text";
     "pv-html"?: string;
+    "pv-on:init"?: string;
 }
 
 type HTMLAttributes<K> = BindableAttributes<K> & EventHandlers<K> & PVAttributes;
@@ -106,8 +107,10 @@ declare function part(name: string): Promise<string>;
 
 declare function useFetcher(name: string, fetcher: (url: string) => Promise<string>): void;
 
+type define_globals = (g_obj: any) => void;
+
 export {
     Data, Getters, HTMLAttributes, Handlers, IApp, MountOptions, Param,
-    Route, Routes, State, batch, createApp, do_children, log, nextTick, part, useFetcher
+    Route, Routes, State, batch, createApp, define_globals, do_children, log, nextTick, part, useFetcher
 };
 

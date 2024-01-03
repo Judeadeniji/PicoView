@@ -6,12 +6,12 @@
   "type": "module",
   "exports": {
     ".": {
-      "import": "./dist/index.js",
-      "require": "./dist/picoview.cjs.js"
+      "import": "./dist/picoview.mjs",
+      "require": "./dist/picoview.cjs"
     }
   },
-  "types": "./dist/index.d.ts",
-  "module": "./dist/index.js",
+  "types": "./dist/picoview.d.ts",
+  "module": "./dist/picoview.mjs",
   "browser": "./dist/picoview.umd.js",
   "unpkg": "./dist/picoview.umd.js",
   "jsdelivr": "./dist/picoview.umd.js",
@@ -22,13 +22,13 @@
     "README.md"
   ],
   "scripts": {
-    "build": "tsc -p . && npm run build:umd && npm run build:esm && npm run build:cjs && npm run uglify",
+    "build": "tsc -p . && npm run build:umd && npm run build:esm && npm run build:cjs && npm run uglify && # cp src/picoview-types.d.ts dist/picoview.d.ts",
     "build:umd": "rollup -c rollup.config.js",
     "build:esm": "rollup -c rollup.config.esm.js",
     "build:cjs": "rollup -c rollup.config.cjs.js",
     "uglify:umd": "uglifyjs -m eval -o dist/picoview.umd.min.js dist/picoview.umd.js",
-    "uglify:esm": "uglifyjs -m eval -o dist/picoview.esm.min.js dist/picoview.esm.js",
-    "uglify:cjs": "uglifyjs -m eval -o dist/picoview.cjs.min.js dist/picoview.cjs.js",
+    "uglify:esm": "uglifyjs -m eval -o dist/picoview.min.mjs dist/picoview.mjs",
+    "uglify:cjs": "uglifyjs -m eval -o dist/picoview.min.cjs dist/picoview.cjs",
     "uglify": "npm run uglify:umd && npm run uglify:esm && npm run uglify:cjs"
   },
   "keywords": [
